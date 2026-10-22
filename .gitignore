@@ -1,0 +1,25 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器配置
+.idea/
+.vscode/
+*.swp
+
+# 训练与日志产物
+runs/
+train_log.txt
+*.log
+
+# 临时文件
+*.tmp
+*.zip
+*.rar
+
+# 本地环境
+.env
+
+# 运行生成的历史记录
+history.json

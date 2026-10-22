@@ -10,17 +10,18 @@
   3: fray  毛边         4: uneven  不平整
 训练集 936 张 / 验证集 202 张 / 测试集 202 张
 
-运行方式（使用老师 WinPython 环境）：
-  WinPython\python.exe train.py
+运行方式（安装依赖后）：
+  python train.py
 """
 from ultralytics import YOLO
 import torch
+import os
 
-# ---------------- 路径配置（英文路径，避免 Windows 中文路径兼容问题） ----------------
-BASE = r"C:\Users\lenovo\Desktop\VisionAI_Lab"
-DATA = BASE + r"\datasets\magnetic_tile\data.yaml"    # 数据集配置
-PRETRAINED = BASE + r"\yolov8n.pt"                    # 官方预训练权重（训练起点）
-OUTPUT_DIR = BASE + r"\MT_defect_system\runs"         # 训练产物输出目录（英文路径）
+# ---------------- 路径配置（相对路径，自动适配当前项目目录） ----------------
+BASE = os.path.dirname(os.path.abspath(__file__))          # 项目根目录
+DATA = os.path.join(BASE, "datasets", "magnetic_tile", "data.yaml")  # 数据集配置
+PRETRAINED = os.path.join(BASE, "yolov8n.pt")              # 官方预训练权重（训练起点）
+OUTPUT_DIR = os.path.join(BASE, "runs")                    # 训练产物输出目录
 
 def main():
     print("=" * 50)

@@ -9,17 +9,17 @@
   - 判定准确率
 
 运行方式（训练完成后）：
-  WinPython\python.exe val.py
+  python val.py
 """
 from ultralytics import YOLO
 import os, json, glob
 
-# ---------------- 路径配置（英文路径） ----------------
-BASE = r"C:\Users\lenovo\Desktop\VisionAI_Lab"
-MODEL_PATH = BASE + r"\MT_defect_system\runs\magnetic_tile_defect\weights\best.pt"  # 训练好的模型
-DATA = BASE + r"\datasets\magnetic_tile\data.yaml"       # 数据集配置
-VAL_IMAGES = BASE + r"\datasets\magnetic_tile\images\val"    # 验证集图片
-VAL_LABELS = BASE + r"\datasets\magnetic_tile\labels\val"    # 验证集标注
+# ---------------- 路径配置（相对路径，自动适配当前项目目录） ----------------
+BASE = os.path.dirname(os.path.abspath(__file__))        # 项目根目录
+MODEL_PATH = os.path.join(BASE, "best.pt")               # 训练好的模型（项目根目录）
+DATA = os.path.join(BASE, "datasets", "magnetic_tile", "data.yaml")  # 数据集配置
+VAL_IMAGES = os.path.join(BASE, "datasets", "magnetic_tile", "images", "val")  # 验证集图片
+VAL_LABELS = os.path.join(BASE, "datasets", "magnetic_tile", "labels", "val")  # 验证集标注
 CONF = 0.25           # 置信度阈值（与检测系统保持一致）
 
 # 五类缺陷中文名（便于报告展示）
@@ -118,7 +118,7 @@ def main():
         "accuracy": round(correct / total, 4),
         "class_recall": {cls_names[i]: round(row[1], 4) for i, row in enumerate(class_r)},
     }
-    out = BASE + r"\MT_defect_system\val_summary.json"
+    out = os.path.join(BASE, "val_summary.json")
     with open(out, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
     print(f"\n评价结果已保存到：{out}")

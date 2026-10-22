@@ -12,8 +12,8 @@
 判定规则：有符合置信度阈值的缺陷框 => NG；没有 => OK。
   "没检出"不代表一定没有缺陷，会在结果中说明。
 
-运行方式（老师 WinPython 环境）：
-  WinPython\python.exe main.py
+运行方式（安装依赖后）：
+  python main.py
 """
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
@@ -26,9 +26,10 @@ from ultralytics import YOLO
 
 # ================== 配置 ==================
 CONF_THRESHOLD = 0.25                 # 置信度阈值：框置信度 >= 阈值才算有效缺陷
-MODEL_PATH = r"C:\Users\lenovo\Desktop\VisionAI_Lab\MT_defect_system\runs\magnetic_tile_defect\weights\best.pt"
-HISTORY_FILE = r"C:\Users\lenovo\Desktop\VisionAI_Lab\MT_defect_system\history.json"
-RESULT_DIR = r"C:\Users\lenovo\Desktop\VisionAI_Lab\MT_defect_system\results"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # 项目根目录（相对路径，自动适配）
+MODEL_PATH = os.path.join(BASE_DIR, "best.pt")         # 模型权重（放在项目根目录）
+HISTORY_FILE = os.path.join(BASE_DIR, "history.json")  # 检测历史记录（自动生成）
+RESULT_DIR = os.path.join(BASE_DIR, "results")         # 结果保存目录
 
 # 五类缺陷中文名（对应模型的类别序号）
 CLASS_CN = {0: "气孔", 1: "崩边", 2: "裂纹", 3: "毛边", 4: "不平整"}
