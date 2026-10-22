@@ -1,0 +1,18 @@
+{
+  "precision": 0.884,
+  "recall": 0.807,
+  "f1": 0.8438,
+  "map50": 0.7671,
+  "total_images": 202,
+  "true_ng": 59,
+  "miss_count": 0,
+  "false_kill_count": 2,
+  "accuracy": 0.9901,
+  "class_recall": {
+    "blowhole": 0.9758,
+    "break": 0.4375,
+    "crack": 1.0,
+    "fray": 0.8571,
+    "uneven": 0.7647
+  }
+}
