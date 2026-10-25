@@ -1,0 +1,47 @@
+# ==================== 数据与权重（体积大，不入库） ====================
+datasets/
+data/
+weights/*
+!weights/README.md
+*.pt
+*.pth
+*.onnx
+*.engine
+*.torchscript
+
+# ==================== 训练 / 推理产物 ====================
+runs/
+results/
+output/
+wandb/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# ==================== 运行时记录 ====================
+history.json
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# ==================== 系统 ====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==================== 编辑器 ====================
+.vscode/
+.idea/
+
+# ==================== 本地配置 ====================
+.env

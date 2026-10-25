@@ -1,0 +1,10 @@
+# 运行环境（开发时验证于 Python 3.12 + 纯 CPU）
+# torch 装 CPU 版即可，无需显卡：
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+ultralytics>=8.3
+torch>=2.4
+torchvision>=0.19
+opencv-python>=4.9
+pillow>=10.0
+numpy>=1.26
