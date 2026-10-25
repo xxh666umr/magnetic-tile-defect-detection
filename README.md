@@ -96,7 +96,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Windows 下也可以直接双击 `启动系统.bat`。
+Windows 下也可以直接双击 `启动系统.bat`。它会先检查当前 Python 有没有装好依赖，缺依赖时直接给出处理办法，而不是抛一堆 traceback。
 
 ---
 
